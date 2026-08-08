@@ -115,7 +115,7 @@ export default function ToonhubHero() {
     <div
       className="relative w-full overflow-hidden"
       style={{
-        backgroundColor: IMAGES[activeIndex].bg,
+        backgroundColor: IMAGES[activeIndex]!.bg,
         transition: `background-color ${DURATION}ms ${EASE}`,
         fontFamily: "Inter, sans-serif",
       }}
