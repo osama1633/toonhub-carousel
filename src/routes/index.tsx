@@ -1,24 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
+import ToonhubHero from "@/components/ToonhubHero";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "TOONHUB — Collectible 3D Character Figurines" },
+      {
+        name: "description",
+        content:
+          "Explore TOONHUB's collectible 3D character figurines: bold colors, flawless craft, shipped ready to display.",
+      },
+      { property: "og:title", content: "TOONHUB — Collectible 3D Character Figurines" },
+      {
+        property: "og:description",
+        content:
+          "Explore TOONHUB's collectible 3D character figurines: bold colors, flawless craft, shipped ready to display.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: ToonhubHero,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
