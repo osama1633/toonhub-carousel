@@ -22,5 +22,41 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: ToonhubHero,
+  component: HomePage,
 });
+
+function HomePage() {
+  return (
+    <div>
+      <ToonhubHero />
+      <BrandsSection limit={3} />
+      <section className="border-t border-border/60 bg-background py-16 sm:py-24">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 sm:px-8">
+          <h2
+            className="max-w-2xl text-3xl uppercase leading-none tracking-[-0.02em] text-foreground sm:text-5xl"
+            style={{ fontFamily: "Anton, sans-serif" }}
+          >
+            Ready to start a shelf?
+          </h2>
+          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+            Browse the current collection or read how we work with each studio before a release.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/collection"
+              className="flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Shop collection <ArrowRight size={14} />
+            </Link>
+            <Link
+              to="/about"
+              className="flex items-center gap-2 rounded-full border border-border px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-accent"
+            >
+              About us
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
